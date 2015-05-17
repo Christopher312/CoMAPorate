@@ -3,38 +3,10 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
-        <script src="respondToClick.js"></script>
         <script src="jquery-2.1.4.js"></script>
         <div id="imageContainer" style="position: relative; left: 0; top: 0;">
             <img src="white-house-grounds-map.jpg" id="image" alt="white house" style="position: relative; top: 0; left: 0;">
         </div>
-        <script>
-            $("#image").click(
-                function(e){
-                    var x = e.offsetX
-                    var y = e.offsetY
-                    show_image("waypoint.png", 30, 60, "waypoint", x, y)
-                    console.log(x, y)
-                }
-            )
-            function show_image(src, width, height, alt, x, y) {
-                var img = document.createElement("img");
-                
-                img.src = src;
-                img.width = width;
-                img.height = height;
-                img.alt = alt;
-                img.style.position="absolute";
-                img.style.top= y-height;
-                img.style.left= x-width/2;
-                img.id="waypoint";
-                document.getElementById("imageContainer").appendChild(img); 
-            }
-            $("#waypoint").click(
-                function(e){
-                    console.log(e)
-                }
-            )
-        </script>
+        <script src="respondToClick.js"></script>
     </body>
 </html>

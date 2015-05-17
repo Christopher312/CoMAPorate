@@ -71,12 +71,15 @@ function show_box_2(x,y){
     div.style.left = x;
     div.style.top = y;
     div.style.position="absolute";
-    div.id = x+","+y+"Div";
+    div.id = x+","+y+"Div2";
     document.getElementById("imageContainer").appendChild(div);
 }
 
 function createTag(x,y){
     var tagName = document.getElementById(x+","+y+"TagNameTB");
     var tagValue = document.getElementById(x+","+y+"TagTextTB");
-    console.log(tagName, tagValue);
+    console.log(tagName.value, tagValue.value);
+
+    var div = document.getElementById(x+","+y+"Div2");
+    div.parentNode.removeChild(div);
 }

@@ -50,3 +50,11 @@ function removeDiv(x,y)
 	var div = document.getElementById(x+","+y+"Div");
 	div.parentNode.removeChild(div);
 }
+$("#washingtonDC").click({
+    if ($("#textBoxDC").value === "Washington DC") {
+
+    }
+    else {
+        alert("That map doesn't exist!");
+    }
+});

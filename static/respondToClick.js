@@ -2,7 +2,7 @@ $("#image").click(
     function(e){
         var x = e.offsetX;
         var y = e.offsetY;
-        show_image("waypointOrange.png", 30, 60, "waypoint", x, y);
+        show_image("/static/waypointOrange.png", 30, 60, "waypoint", x, y);
 		show_box(x,y)
     }
 )
@@ -26,18 +26,13 @@ $("#waypoint").click(
 )
 function show_box(x, y){
 	var div = document.createElement("div");
-	//div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=removeBox(div)>Add A Point</button>'
-    div.innerHTML = '<form><input type="text" id="searchTB"></input><button type="button" id="searchButton" onclick=removeBox(document.getElementById("newDiv"))>Add A Point</button>'
-	div.style.left = x;
+	div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=removeBox(div)>Add A Point</button>'
+    div.style.left = x;
 	div.style.top = y;
 	div.style.position="absolute";
-	div.id = "newDiv"
 	document.getElementById("imageContainer").appendChild(div);
 }
 function removeBox(div){
 	console.log("this was called")
 	div.parentNode.removeChild(div)
-}
-function displayStuff(){
-	alert("mybutton was clickede")
 }

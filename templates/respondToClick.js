@@ -26,8 +26,9 @@ $("#waypoint").click(
 )
 function show_box(x, y){
 	var div = document.createElement("div");
-	div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=removeBox(div)>Add A Point</button>'
-    div.style.left = x;
+	//div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=removeBox(div)>Add A Point</button>'
+    div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=console.log("mybutton was clickede")>Add A Point</button>'
+	div.style.left = x;
 	div.style.top = y;
 	div.style.position="absolute";
 	document.getElementById("imageContainer").appendChild(div);

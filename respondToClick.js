@@ -14,9 +14,8 @@ function show_image(src, width, height, alt, x, y) {
     img.style.position="absolute";
     img.style.top= y-60;
     img.style.left= x-15;
-    console.log(x,y)
     img.id="waypoint";
-    document.getElementById("imageContainer").appendChild(img);
+    document.getElementById("imageContainer").appendChild(img); 
 }
 $("#waypoint").click(
     function(e){

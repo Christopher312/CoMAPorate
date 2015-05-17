@@ -38,7 +38,7 @@ $("#waypoint").click(
 )
 function show_box(x, y){
 	var div = document.createElement("div");	
-	div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TB" value="name"></input><button type="button" id="' + x + ','+y+'Btn" onclick=createPoint('+x+','+y+')>Add A Point</button>';
+	div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TB" placeholder="name"></input><button type="button" id="' + x + ','+y+'Btn" onclick=createPoint('+x+','+y+')>Add A Point</button>';
 	div.style.left = x;
 	div.style.top = y;
 	div.style.position="absolute";
@@ -58,18 +58,24 @@ function removeDiv(x,y)
 
 $("#WashingtonDC").click(
     function(e) {
-        if (document.getElementById("exampleInputName2").value === "Washington DC") {
+        if (document.getElementById("exampleInputName2").value.toLowerCase() === "washington dc") {
+//            document.getElementById("imageContainer").appendChild('<img src="/static/white-house-grounds-map.jpg" alt="DC" class=".img-responsive">');
+
             window.location = "http://0.0.0.0:5000/map";
             console.log(window.location);
         }
+//        else if (document.getElementById("exampleInputName2").value.toLowerCase() === "west middle school") {
+//            document.getElementById("imageContainer").appendChild('<img src="/static/WestMiddleMap.jpg" alt="School Map" class=".img-responsive">');
+//            window.location = "http://0.0.0.0:5000/map";
+//            console.log(window.location);
+//        }
         else {
             alert("That map doesn't exist!");
         }
 });
 function show_box_2(x,y){
-    //this is not done at all
     var div = document.createElement("div");    
-    div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" value="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" value="Tag Text"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
+    div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" placeholder="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" placeholder="Tag Text"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
     div.style.left = x;
     div.style.top = y;
     div.style.position="absolute";

@@ -56,14 +56,15 @@ function removeDiv(x,y)
 	div.parentNode.removeChild(div);
 }
 
-/*$("#washingtonDC").click({
-    if ($("#textBoxDC").value === "Washington DC") {
-
-    }
-    else {
-        alert("That map doesn't exist!");
-    }
-});*/
+$("#WashingtonDC").click(
+    function(e) {
+        if (document.getElementById("exampleInputName2").value === "Washington DC") {
+            window.location = "map.html";
+        }
+        else {
+            alert("That map doesn't exist!");
+        }
+});
 function show_box_2(x,y){
     //this is not done at all
     var div = document.createElement("div");    

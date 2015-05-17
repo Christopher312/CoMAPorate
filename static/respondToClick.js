@@ -58,20 +58,23 @@ function removeDiv(x,y)
 
 $("#WashingtonDC").click(
     function(e) {
-        if (document.getElementById("exampleInputName2").value.toLowerCase() === "washington dc") {
-//            document.getElementById("imageContainer").appendChild('<img src="/static/white-house-grounds-map.jpg" alt="DC" class=".img-responsive">');
-
+        try
+        {
+            window.location = "http://0.0.0.0:5000/"+document.getElementById("exampleInputName2").value.toLowerCase().replace(/\s/g,'');
+        }
+        catch(e)
+        {
+            alert("That map doesn't exist!");
+        }
+        /*
+        else if (document.getElementById("exampleInputName2").value.toLowerCase() === "west middle school") {
             window.location = "http://0.0.0.0:5000/map";
             console.log(window.location);
         }
-//        else if (document.getElementById("exampleInputName2").value.toLowerCase() === "west middle school") {
-//            document.getElementById("imageContainer").appendChild('<img src="/static/WestMiddleMap.jpg" alt="School Map" class=".img-responsive">');
-//            window.location = "http://0.0.0.0:5000/map";
-//            console.log(window.location);
-//        }
         else {
             alert("That map doesn't exist!");
         }
+        */
 });
 function show_box_2(x,y){
     var div = document.createElement("div");    

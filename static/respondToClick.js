@@ -24,6 +24,9 @@ function show_image(x, y) {
     console.log(x,y);
     img.id="waypoint";
     img.class="waypoint"
+    img.onclick=function(e){
+        console.log("stuff")
+    }
     document.getElementById("imageContainer").appendChild(img);
 }
 $("#waypoint").click(

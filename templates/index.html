@@ -10,16 +10,30 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <style>
+            #exampleInputName2 {
+                width:300px;                
+            }
+            .container {
+                top:50%;                
+            }
+            body {
+                background: url(mapbackground.png);
+            }
+        </style>
     </head>
     <body>
-    <link  rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <div class="container">
-        <div class="row text-center">
-            <button type="button">Upload a Map</button><br></br>
-            <p></p>
-                <input type="text" name = "searchTB" class="input-xxlarge search-query"><br></br>
-                <input type="button" value="Find a Map">
+        <center>
+            <h1 style="color:white">CoMAPorate</h1>
+        </center>
+        <div class="container">
+            <div class="row text-center">
+                <button type="button" class="btn btn-default">Upload a Map</button><br><br>
+                <center>
+                    <input type="text" placeholder=" e.g. Washington D.C." class="form-control" id="exampleInputName2">
+                </center>
+                <input type="button" class="btn btn-default" value="Find a Map" >
+            </div>
         </div>
-    </div>
     </body>
 </html>

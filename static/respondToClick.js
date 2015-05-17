@@ -22,6 +22,7 @@ function show_image(x, y) {
     img.style.left= x-width/2;
     console.log(x,y);
     img.id="waypoint";
+    img.class="waypoint"
     document.getElementById("imageContainer").appendChild(img);
 }
 $("#waypoint").click(

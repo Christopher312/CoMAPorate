@@ -23,3 +23,8 @@ $("#waypoint").click(
         console.log("Clicked on waypoint")
     }
 )
+function show_box(x, y){
+	var div = document.createElement("div");
+	div.innerHTML = '<input type="text" id="searchTB"></input><br></br><button type="button">Add A Point</button>'
+    document.getElementById("imageContainer").appendChild(div);
+}

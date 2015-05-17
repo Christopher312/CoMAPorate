@@ -67,7 +67,7 @@ function removeDiv(x,y)
 function show_box_2(x,y){
     //this is not done at all
     var div = document.createElement("div");    
-    div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" value="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" value="Tag Name"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
+    div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" value="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" value="Tag Text"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
     div.style.left = x;
     div.style.top = y;
     div.style.position="absolute";
@@ -76,7 +76,7 @@ function show_box_2(x,y){
 }
 
 function createTag(x,y){
-    var tagName = getElementById("' + x + ','+y+'TagNameTB");
-    var tagValue = getElementById("' + x + ','+y+'TagValueTB");
+    var tagName = document.getElementById(x+","+y+"TagNameTB");
+    var tagValue = document.getElementById(x+","+y+"TagTextTB");
     console.log(tagName, tagValue);
 }

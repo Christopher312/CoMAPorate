@@ -2,37 +2,44 @@ $("#image").click(
     function(e){
         var x = e.offsetX;
         var y = e.offsetY;
-        show_image("/static/waypointOrange.png", 30, 60, "waypoint", x, y);
-		show_box(x,y)
+        addPoint(x,y);
     }
 )
-function show_image(src, width, height, alt, x, y) {
+function addPoint(x,y)
+{
+	show_image(x,y);
+	show_box(x,y);
+}
+function show_image(x, y) {
     var img = document.createElement("img");
-    img.src = src;
+	var height = 60;
+	var width = 30;
+    img.src = "/static/waypointOrange.png";
     img.width = width;
     img.height = height;
-    img.alt = alt;
     img.style.position="absolute";
-    img.style.top= y-60;
-    img.style.left= x-15;
-    console.log(x,y)
+    img.style.top= y-height;
+    img.style.left= x-width/2;
+    console.log(x,y);
     img.id="waypoint";
     document.getElementById("imageContainer").appendChild(img);
 }
 $("#waypoint").click(
     function(e){
-        console.log("Clicked on waypoint")
+        console.log("Clicked on waypoint");
     }
 )
 function show_box(x, y){
-	var div = document.createElement("div");
-	div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=removeBox(div)>Add A Point</button>'
-    div.style.left = x;
+	var div = document.createElement("div");	
+	div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TB"></input><button type="button" id="' + x + ','+y+'Btn" onclick=createPoint('+x+','+y+')>Add A Point</button>';
+	div.style.left = x;
 	div.style.top = y;
 	div.style.position="absolute";
+	div.id = x+","+y+"Div";
 	document.getElementById("imageContainer").appendChild(div);
-}
-function removeBox(div){
-	console.log("this was called")
-	div.parentNode.removeChild(div)
+	}
+function createPoint(x,y)
+{	
+	var div = document.getElementById(x+","+y+"Div");
+	div.parentNode.removeChild(div);
 }

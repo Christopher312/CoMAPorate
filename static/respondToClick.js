@@ -40,6 +40,11 @@ function show_box(x, y){
 	}
 function createPoint(x,y)
 {	
+	$.post("addPoint", {xCoordinate:x, yCoordinate:y}, removeDiv(x,y), json);
+
+}
+function removeDiv(x,y)
+{
 	var div = document.getElementById(x+","+y+"Div");
 	div.parentNode.removeChild(div);
 }

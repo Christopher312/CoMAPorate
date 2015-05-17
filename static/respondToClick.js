@@ -59,7 +59,8 @@ function removeDiv(x,y)
 $("#WashingtonDC").click(
     function(e) {
         if (document.getElementById("exampleInputName2").value === "Washington DC") {
-            window.location = "map.html";
+            window.location = "http://0.0.0.0:5000/map";
+            console.log(window.location);
         }
         else {
             alert("That map doesn't exist!");

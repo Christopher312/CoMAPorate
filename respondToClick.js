@@ -3,6 +3,7 @@ $("#image").click(
         var x = e.offsetX;
         var y = e.offsetY;
         show_image("waypointOrange.png", 30, 60, "waypoint", x, y);
+		show_box(x,y)
     }
 )
 function show_image(src, width, height, alt, x, y) {
@@ -25,8 +26,13 @@ $("#waypoint").click(
 )
 function show_box(x, y){
 	var div = document.createElement("div");
-	div.innerHTML = '<input type="text" id="searchTB"></input><br></br><button type="button">Add A Point</button>'
+	div.innerHTML = '<input type="text" id="searchTB"></input><button type="button" id="searchButton" onClick=removeBox(div)>Add A Point</button>'
     div.style.left = x;
 	div.style.top = y;
+	div.style.position="absolute";
 	document.getElementById("imageContainer").appendChild(div);
+}
+function removeBox(div){
+	console.log("this was called")
+	div.parentNode.removeChild(div)
 }

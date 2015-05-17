@@ -10,6 +10,14 @@ def home():
 def hello():
     return render_template("map.html")
 
-
+@app.route('/place', methods = ['POST']])
+def storeData():
+	return None
+	
+def login():
+	if request.method == 'POST':
+		storeData()
+		
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
+	

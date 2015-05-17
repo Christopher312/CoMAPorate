@@ -1,7 +1,8 @@
 $("#image").click(
     function(e){
-        var x = e.offsetX;
-        var y = e.offsetY;
+        var x = e.pageX;
+        var y = e.pageY;
+        console.log(e);
         addPoint(x,y);
     }
 )

@@ -10,7 +10,7 @@ def home():
 def hello():
     return render_template("map.html")
 
-@app.route('/place', methods = ['POST']])
+@app.route('/place', methods = ['POST'])
 def storeData():
 	return None
 	

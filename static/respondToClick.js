@@ -36,7 +36,7 @@ $("#waypoint").click(
 )
 function show_box(x, y){
 	var div = document.createElement("div");	
-	div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TB"></input><button type="button" id="' + x + ','+y+'Btn" onclick=createPoint('+x+','+y+')>Add A Point</button>';
+	div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TB" value="name"></input><button type="button" id="' + x + ','+y+'Btn" onclick=createPoint('+x+','+y+')>Add A Point</button>';
 	div.style.left = x;
 	div.style.top = y;
 	div.style.position="absolute";
@@ -62,3 +62,19 @@ function removeDiv(x,y)
         alert("That map doesn't exist!");
     }
 });*/
+function show_box_2(x,y){
+    //this is not done at all
+    var div = document.createElement("div");    
+    div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" value="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" value="Tag Name"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
+    div.style.left = x;
+    div.style.top = y;
+    div.style.position="absolute";
+    div.id = x+","+y+"Div";
+    document.getElementById("imageContainer").appendChild(div);
+}
+
+function createTag(x,y){
+    var tagName = getElementById("' + x + ','+y+'TagNameTB");
+    var tagValue = getElementById("' + x + ','+y+'TagValueTB");
+    console.log(tagName, tagValue);
+}

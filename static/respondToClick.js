@@ -1,3 +1,4 @@
+
 $("#image").click(
     function(e){
         var x = e.pageX;
@@ -25,9 +26,9 @@ function show_image(x, y) {
     img.id="waypoint";
     img.class="waypoint"
     img.onclick=function(e){
-        x = e.pageX;
-        y = e.pageY
-        show_box_2(x,y)
+        x2 = e.pageX;
+        y2 = e.pageY
+        show_box_2(x,y)//;img.style.left, img.style.top)
     }
     document.getElementById("imageContainer").appendChild(img);
 }
@@ -47,8 +48,13 @@ function show_box(x, y){
 	}
 function createPoint(x,y)
 {	
-	$.post("addPoint", {xCoordinate:x, yCoordinate:y}, removeDiv(x,y), json);
+    var info = document.getElementById(x +','+y+'TB').value
+	$.post("place", {xCoordinate: x, yCoordinate: y, name: info}, removeDiv(x,y), 'json');
 
+}
+function modifyPoint(x,y,tagN,tagV)
+{
+    $.post("modify", {xCoordinate: x, yCoordinate: y, tagName: tagN, tagValue: tagV}, 'json');
 }
 function removeDiv(x,y)
 {
@@ -58,32 +64,45 @@ function removeDiv(x,y)
 
 $("#WashingtonDC").click(
     function(e) {
-        try
-        {
-            window.location = "http://0.0.0.0:5000/"+document.getElementById("exampleInputName2").value.toLowerCase().replace(/\s/g,'');
+        if (document.getElementById("exampleInputName2").value.toLowerCase() === "washington dc") {
+//            document.getElementById("imageContainer").appendChild('<img src="/static/white-house-grounds-map.jpg" alt="DC" class=".img-responsive">');
+
+            window.location = "http://localhost:5000/washingtondc";
+            console.log(window.location);
         }
-        catch(e)
-        {
-            alert("That map doesn't exist!");
-        }
-        /*
         else if (document.getElementById("exampleInputName2").value.toLowerCase() === "west middle school") {
-            window.location = "http://0.0.0.0:5000/map";
+           //document.getElementById("imageContainer").appendChild('<img src="/static/WestMiddleMap.jpg" alt="School Map" class=".img-responsive">');
+            window.location = "http://localhost:5000/westmiddle";
             console.log(window.location);
         }
         else {
             alert("That map doesn't exist!");
         }
-        */
 });
 function show_box_2(x,y){
-    var div = document.createElement("div");    
-    div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" placeholder="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" placeholder="Tag Text"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
-    div.style.left = x;
-    div.style.top = y;
-    div.style.position="absolute";
-    div.id = x+","+y+"Div2";
-    document.getElementById("imageContainer").appendChild(div);
+    
+    //var ans = window.prompt("Enter 1 to view info, 2 to add a tag");
+    //if(ans==2) {
+        var div = document.createElement("div");    
+        div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" placeholder="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" placeholder="Tag Text"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
+        div.style.left = x;
+        div.style.top = y;
+        div.style.position="absolute";
+        div.id = x+","+y+"Div2";
+        document.getElementById("imageContainer").appendChild(div);
+    //}
+    //else {
+        
+       // $.get("/getInfo", function(data){window.alert(data[x+","+y])});
+        //window.alert(obj.toString())
+    //}
+    
+   /* var div = document.createElement("div");    
+        div.innerHTML = '<form><input type="text" id="' + x + ','+y+'TagNameTB" placeholder="Tag Name"></input><br><input type="text" id="' + x + ','+y+'TagTextTB" placeholder="Tag Text"></input><br><button type="button" id="' + x + ','+y+'TagBtn" onclick=createTag('+x+','+y+')>Add A Tag</button>';
+        div.style.left = x;
+        div.style.top = y;
+        div.style.position="absolute";
+        div.id = x+","+y+"Div2";*/
 }
 
 function createTag(x,y){
@@ -93,4 +112,5 @@ function createTag(x,y){
 
     var div = document.getElementById(x+","+y+"Div2");
     div.parentNode.removeChild(div);
+    //modifyPoint(x,y,tagName,tagValue);
 }
